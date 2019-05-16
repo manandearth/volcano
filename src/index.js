@@ -78,8 +78,10 @@ class App extends React.Component  {
     render() {
         return (
             <div>
-            <h1>Reactive Volcanoes</h1>
-            <VolcanoNameList />
+              <h1>Reactive Volcanoes</h1>
+              <SearchBox />
+              <LocationRange />
+              <VolcanoNameList />
             </div>
         );
     }
@@ -104,10 +106,45 @@ function VolcanoList(props) {
     return jsonNames;
 }
 
+class SearchBox extends React.Component {
+
+    render () {
+        return (
+            <fieldset>
+              <legend>Enter the volcano name</legend>
+              <input value=""/>
+            </fieldset>
+        );
+        }
+}
+
+
+class LocationRange extends React.Component {
+
+    render () {
+        return (
+            <div>
+              <div>
+                <p>Latitude</p>
+                <label>Min</label>
+                <input type="range" name="Latitude" id="Latitude" min="-180" max="180" />
+                <label>Max</label>
+                <input type="range" name="Latitude" id="Latitude" min="-180" max="180" />
+              </div>
+              <div>
+                <p>Longitude</p>
+                <label>Min</label>
+                <input type="range" name="Latitude" id="Latitude" min="-180" max="180" />
+                <label>Max</label>
+                <input type="range" name="Latitude" id="Latitude" min="-180" max="180" />
+              </div>
+            </div>
+        );
+    }
+}
 
 class VolcanoNameList extends React.Component {
 
-    
     render() {
         return (
             <div>
@@ -122,9 +159,6 @@ class VolcanoNameList extends React.Component {
             </tr>
                 <VolcanoList />
               </table>
-              <div>
-                {/* <GetData /> */}
-              </div>
             </div>);
     }
     
