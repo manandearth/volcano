@@ -52,6 +52,7 @@
   p.label {
       font-weight: bold;
       color: red;
+      margin: 10px;
   }
 
   .topbar {
@@ -102,6 +103,32 @@
     background: #4CAF50; /* Green background */
     cursor: pointer; /* Cursor on hover */
 }
+
+.minislider {
+  -webkit-appearance: none;  /* Override default CSS styles */
+  appearance: none;
+  width: 100%; /* Full-width */
+  height: 15px; /* Specified height */
+  background: #d3d3d3; /* Grey background */
+  outline: none; /* Remove outline */
+  opacity: 0.7; /* Set transparency (for mouse-over effects on hover) */
+  -webkit-transition: .2s; /* 0.2 seconds transition on hover */
+  transition: opacity .2s;
+}
+
+.minislider:hover {
+  opacity: 1; /* Fully shown on mouse-over */
+}
+
+.minislider::-webkit-slider-thumb {
+    -webkit-appearance: none; /* Override default look */
+    appearance: none;
+    width: 15px; /* Set a specific slider handle width */
+    height: 15px; /* Slider handle height */
+    background: #224482; /* Green background */
+    cursor: pointer; /* Cursor on hover */
+}
+
 
   .location-range {
       padding: 1rem;
