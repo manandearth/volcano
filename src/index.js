@@ -8,10 +8,14 @@ class App extends React.Component  {
     render() {
         return (
             <div>
+              <div class="topbar">
               <h1><span>[</span>REACTIVE VOLCANOES<span>]</span></h1>
               <h2>The following is a <span>R</span>eact exercise</h2>
-              <p>Update the table by sliding the range inputs for latitude and longitude.</p>
+                <p>Update the table by sliding the range inputs for latitude and longitude.</p>
+              </div>
+               <div class="list">
               <VolcanoFilteredList />
+            </div>
             </div>
         );
     }
@@ -47,6 +51,7 @@ class VolcanoFilteredList extends React.Component {
     render() {
         return (
             <div>
+              <div class="location-range">
               <LocationRange
                 minLat={this.state.minLat}
                 maxLat={this.state.maxLat}
@@ -56,7 +61,8 @@ class VolcanoFilteredList extends React.Component {
                 onMaxLatChange={this.handleMaxLatChange}
                 onMinLonChange={this.handleMinLonChange}
                 onMaxLonChange={this.handleMaxLonChange} />
-              <table>
+              </div>
+            <table>
                 <tr>
                   <th>name</th>
                   <th>Country</th>
