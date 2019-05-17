@@ -3,15 +3,19 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import * as serviceWorker from './serviceWorker';
 import Volcano from './volcano.json';
+import logo from './react-native-icon.svg';
 
 class App extends React.Component  {
     render() {
         return (
             <div>
               <div class="topbar">
-              <h1><span>[</span>REACTIVE VOLCANOES<span>]</span></h1>
-              <h2>The following is a <span>R</span>eact exercise</h2>
-                <p>Update the table by sliding the range inputs for latitude and longitude.</p>
+
+                <div class="title">
+                  <h1><span class="title">[</span>REACTIVE VOLCANOES<span class="title">]</span></h1>
+                  <h2 class="title">The following is a <img src={logo} class="app-logo" alt="logo" /> <span class="R">R</span>eact exercise</h2>
+                  <p>Update the table by sliding the range inputs for latitude and longitude.</p>
+                </div>
               </div>
                <div class="list">
               <VolcanoFilteredList />
@@ -146,10 +150,11 @@ class LocationRange extends React.Component {
     render () {
         return (
             <div>
-              <div>
+              <div class="slide-container">
                 <p class="label">Latitude</p>
                 <label>Min</label>
-                <input type="range"
+                <input class="slider"
+                       type="range"
                        name="Latitude"
                        id="Latitude"
                        min="-90"
