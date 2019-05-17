@@ -10,16 +10,19 @@ class App extends React.Component  {
         return (
             <div>
               <div class="topbar">
-
                 <div class="title">
                   <h1><span class="title">[</span>REACTIVE VOLCANOES<span class="title">]</span></h1>
                   <h2 class="title">The following is a <img src={logo} class="app-logo" alt="logo" /> <span class="R">R</span>eact exercise</h2>
-                  <p>Update the table by sliding the range inputs for latitude and longitude.</p>
+                  <div class="explain">
+                    <p>&lt;= Update the table by sliding the range inputs for latitude and longitude.</p>
+                  </div>
                 </div>
               </div>
-               <div class="list">
+
+              <div class="list">
               <VolcanoFilteredList />
             </div>
+
             </div>
         );
     }
@@ -29,21 +32,21 @@ class VolcanoFilteredList extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            minLat: "-90", maxLat: "90",
+            lat: "-90", latEpsilon: "0",
             minLon: "-180", maxLon: "180"};
-        this.handleMinLatChange = this.handleMinLatChange.bind(this);
-        this.handleMaxLatChange = this.handleMaxLatChange.bind(this);
+        this.handleLatChange = this.handleLatChange.bind(this);
+        this.handleLatEpsilonChange = this.handleLatEpsilonChange.bind(this);
         this.handleMinLonChange = this.handleMinLonChange.bind(this);
         this.handleMaxLonChange = this.handleMaxLonChange.bind(this);
         
     }
 
-    handleMinLatChange(value) {
-        this.setState({minLat: value});
+    handleLatChange(value) {
+        this.setState({lat: value});
     }
 
-    handleMaxLatChange(value) {
-        this.setState({maxLat: value});
+    handleLatEpsilonChange(value) {
+        this.setState({latEpsilon: value});
     }
     handleMinLonChange(value) {
         this.setState({minLon: value});
@@ -54,34 +57,42 @@ class VolcanoFilteredList extends React.Component {
     
     render() {
         return (
-            <div>
+            <section>
+            <div class="container">
               <div class="location-range">
               <LocationRange
-                minLat={this.state.minLat}
-                maxLat={this.state.maxLat}
+                lat={this.state.lat}
+                latEpsilon={this.state.latEpsilon}
                 minLon={this.state.minLon}
                 maxLon={this.state.maxLon}
-                onMinLatChange={this.handleMinLatChange}
-                onMaxLatChange={this.handleMaxLatChange}
+                onLatChange={this.handleLatChange}
+                onLatEpsilonChange={this.handleLatEpsilonChange}
                 onMinLonChange={this.handleMinLonChange}
                 onMaxLonChange={this.handleMaxLonChange} />
               </div>
+              <div>
             <table>
+              <thead>
                 <tr>
-                  <th>name</th>
-                  <th>Country</th>
-                  <th>Latitude</th>
-                  <th>Longitude</th>
-                  <th>Active?</th>
-                  <th>Hazard Rate</th>
-            </tr>
+                  <th><div>name</div></th>
+                  <th><div>Sub-region</div></th>
+                  <th><div>Latitude</div></th>
+                  <th><div>Longitude</div></th>
+                  <th><div>Active?</div></th>
+                  <th><div>Hazard Rate</div></th>
+                </tr>
+              </thead>
+              <tbody>
                 <VolcanoList
-                minLat={this.state.minLat}
-                maxLat={this.state.maxLat}
+                lat={this.state.lat}
+                latEpsilon={this.state.latEpsilon}
                 minLon={this.state.minLon}
                 maxLon={this.state.maxLon} />
-              </table>
-            </div>);
+              </tbody>
+            </table>
+            </div>
+            </div>
+        </section>);
     }
     
 }
@@ -94,19 +105,19 @@ class  VolcanoList extends React.Component {
     }
 
     render () {
-        const minLat = this.props.minLat;
-        const maxLat = this.props.maxLat;
+        const lat = this.props.lat;
+        const latEpsilon = this.props.latEpsilon;
         const minLon = this.props.minLon;
         const maxLon = this.props.maxLon;
         return (
             this.volcanoes.map((volcano) =>
-                (   volcano['properties']['Latitude'] < maxLat &&
-                    volcano['properties']['Latitude'] > minLat &&
+                (   volcano['properties']['Latitude'] <= (parseFloat(lat)  + parseFloat(latEpsilon)) &&
+                    volcano['properties']['Latitude'] >= (parseFloat(lat) - parseFloat(latEpsilon)) &&
                     volcano['properties']['Longitude'] < maxLon &&
                     volcano['properties']['Longitude'] > minLon ) ? 
             <tr>
               <td>{volcano['properties']['V_Name']}</td>
-              <td>{volcano['properties']['Country']}</td>
+              <td>{volcano['properties']['Subregion']}</td>
               <td>{volcano['properties']['Latitude']}</td>
               <td>{volcano['properties']['Longitude']}</td>
               <td>{volcano['properties']['H_active']}</td>
@@ -123,19 +134,19 @@ class LocationRange extends React.Component {
 
     constructor(props) {
         super(props);
-         this.handleMinLatChange = this.handleMinLatChange.bind(this);
-        this.handleMaxLatChange = this.handleMaxLatChange.bind(this);
+         this.handleLatChange = this.handleLatChange.bind(this);
+        this.handleLatEpsilonChange = this.handleLatEpsilonChange.bind(this);
         this.handleMinLonChange = this.handleMinLonChange.bind(this);
         this.handleMaxLonChange = this.handleMaxLonChange.bind(this);
     }
 
 
-    handleMinLatChange(event) {
-        this.props.onMinLatChange(event.target.value);
+    handleLatChange(event) {
+        this.props.onLatChange(event.target.value);
     }
 
-    handleMaxLatChange(event) {
-        this.props.onMaxLatChange(event.target.value);
+    handleLatEpsilonChange(event) {
+        this.props.onLatEpsilonChange(event.target.value);
     }
 
     handleMinLonChange(event) {
@@ -150,25 +161,24 @@ class LocationRange extends React.Component {
     render () {
         return (
             <div>
-              <div class="slide-container">
-                <p class="label">Latitude</p>
-                <label>Min</label>
-                <input class="slider"
+              <div className="slide-container">
+                <p className="label">Latitude</p>
+                <input className="slider"
                        type="range"
-                       name="Latitude"
-                       id="Latitude"
+                       name="lat"
+                       id="lat"
                        min="-90"
                        max="90"
-                       value={this.props.minLat}
-                       onChange={this.handleMinLatChange} />
-                <label>Max</label>
+                       value={this.props.lat}
+                       onChange={this.handleLatChange} />
+                <label>Epsilon</label>
                 <input type="range"
-                       name="Latitude"
-                       id="Latitude"
-                       min="-90"
-                       max="90"
-                       value={this.props.maxLat}
-                       onChange={this.handleMaxLatChange} />
+                       name="latEpsilon"
+                       id="latEpsilon"
+                       min="0"
+                       max="2"
+                       value={this.props.latEpsilon}
+                       onChange={this.handleLatEpsilonChange} />
               </div>
               <div>
                 <p class="label">Longitude</p>
