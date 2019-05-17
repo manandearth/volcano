@@ -1,7 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-// import App from './App';
 import * as serviceWorker from './serviceWorker';
 import Volcano from './volcano.json';
 
@@ -20,7 +19,7 @@ class VolcanoFilteredList extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            minLat: "-180", maxLat: "180",
+            minLat: "-90", maxLat: "90",
             minLon: "-180", maxLon: "180"};
         this.handleMinLatChange = this.handleMinLatChange.bind(this);
         this.handleMaxLatChange = this.handleMaxLatChange.bind(this);
@@ -29,18 +28,18 @@ class VolcanoFilteredList extends React.Component {
         
     }
 
-    handleMinLatChange(event) {
-        this.setState({minLat: event});
+    handleMinLatChange(value) {
+        this.setState({minLat: value});
     }
 
-    handleMaxLatChange(event) {
-        this.setState({maxLat: event});
+    handleMaxLatChange(value) {
+        this.setState({maxLat: value});
     }
-    handleMinLonChange(event) {
-        this.setState({minLon: event});
+    handleMinLonChange(value) {
+        this.setState({minLon: value});
     }
-    handleMaxLonChange(event) {
-        this.setState({maxLon: event});
+    handleMaxLonChange(value) {
+        this.setState({maxLon: value});
     }
     
     render() {
@@ -79,24 +78,20 @@ class  VolcanoList extends React.Component {
 
     constructor(props) {
         super(props);
-        this.volcanoes = Volcano.features;
-        
-        this.applyFilter = this.applyFilter.bind(this);
-       
-    }
-
-    applyFilter(props) {
-        this.volcanoes.filter((volcano) =>
-            (   volcano['properties']['Latitude'] < props.maxLat &&
-                volcano['properties']['Latitude'] > props.minLat &&
-                volcano['properties']['Longitude'] < props.maxLon &&
-                volcano['properties']['Longitude'] > props.minLon) ? volcano : null 
-        );
+        this.volcanoes = Volcano.features;    
     }
 
     render () {
+        const minLat = this.props.minLat;
+        const maxLat = this.props.maxLat;
+        const minLon = this.props.minLon;
+        const maxLon = this.props.maxLon;
         return (
-    this.volcanoes.map((volcano) =>
+            this.volcanoes.map((volcano) =>
+                (   volcano['properties']['Latitude'] < maxLat &&
+                    volcano['properties']['Latitude'] > minLat &&
+                    volcano['properties']['Longitude'] < maxLon &&
+                    volcano['properties']['Longitude'] > minLon ) ? 
             <tr>
               <td>{volcano['properties']['V_Name']}</td>
               <td>{volcano['properties']['Country']}</td>
@@ -104,7 +99,9 @@ class  VolcanoList extends React.Component {
               <td>{volcano['properties']['Longitude']}</td>
               <td>{volcano['properties']['H_active']}</td>
               <td>{volcano['properties']['hazard']}</td>
-            </tr>
+            </tr> 
+:
+null
     ));
        
     }
@@ -147,16 +144,16 @@ class LocationRange extends React.Component {
                 <input type="range"
                        name="Latitude"
                        id="Latitude"
-                       min="-180"
-                       max="180"
+                       min="-90"
+                       max="90"
                        value={this.props.minLat}
                        onChange={this.handleMinLatChange} />
                 <label>Max</label>
                 <input type="range"
                        name="Latitude"
                        id="Latitude"
-                       min="-180"
-                       max="180"
+                       min="-90"
+                       max="90"
                        value={this.props.maxLat}
                        onChange={this.handleMaxLatChange} />
               </div>
@@ -164,16 +161,16 @@ class LocationRange extends React.Component {
                 <p>Longitude</p>
                 <label>Min</label>
                 <input type="range"
-                       name="Latitude"
-                       id="Latitude"
+                       name="Longitude"
+                       id="Longitude"
                        min="-180"
                        max="180"
                        value={this.props.minLon}
                        onChange={this.handleMinLonChange} />
                 <label>Max</label>
                 <input type="range"
-                       name="Latitude"
-                       id="Latitude"
+                       name="Longitude"
+                       id="Longitude"
                        min="-180"
                        max="180"
                        value={this.props.maxLon}
