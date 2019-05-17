@@ -1,0 +1,49 @@
+  
+  
+  body {
+      background-color: ghostwhite;
+  }
+  h1 {
+      text-align: center;
+      font-family: 'Oxygen Mono', monospace;
+      color: #444;
+  }
+
+  span {
+      font-size: 3rem;
+  }
+  h2 {
+      text-align: center;
+      font-family: 'Oxygen Mono', monospace;
+      color: #444;
+  }
+  h3 {
+      font-family: 'Oxygen Mono', monospace;
+      color: #444;
+  }
+  p {
+      font-family: 'Oxygen Mono', monospace;
+      font-size: 1.2rem;
+      color: #444;
+  }
+
+  p.label {
+      font-weight: bold;
+      color: red;
+  }
+  
+  table {
+      padding: 20px;
+      font-family: 'Oxygen Mono', monospace;
+      border: solid thin;
+      width: 100%;
+}
+
+  th{
+      border: solid thin;
+  }
+
+  td { 
+  border: solid thin;
+  padding: 0.5rem 2rem;
+}

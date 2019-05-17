@@ -8,7 +8,9 @@ class App extends React.Component  {
     render() {
         return (
             <div>
-              <h1>Reactive Volcanoes</h1>
+              <h1><span>[</span>REACTIVE VOLCANOES<span>]</span></h1>
+              <h2>The following is a <span>R</span>eact exercise</h2>
+              <p>Update the table by sliding the range inputs for latitude and longitude.</p>
               <VolcanoFilteredList />
             </div>
         );
@@ -139,7 +141,7 @@ class LocationRange extends React.Component {
         return (
             <div>
               <div>
-                <p>Latitude</p>
+                <p class="label">Latitude</p>
                 <label>Min</label>
                 <input type="range"
                        name="Latitude"
@@ -158,7 +160,7 @@ class LocationRange extends React.Component {
                        onChange={this.handleMaxLatChange} />
               </div>
               <div>
-                <p>Longitude</p>
+                <p class="label">Longitude</p>
                 <label>Min</label>
                 <input type="range"
                        name="Longitude"
