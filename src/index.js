@@ -76,8 +76,7 @@ class VolcanoFilteredList extends React.Component {
                 <tr>
                   <th><div>name</div></th>
                   <th><div>Sub-region</div></th>
-                  <th><div>Latitude</div></th>
-                  <th><div>Longitude</div></th>
+                  <th><div>Coordinates</div></th>
                   <th><div>Active?</div></th>
                   <th><div>Hazard Rate</div></th>
                 </tr>
@@ -118,8 +117,9 @@ class  VolcanoList extends React.Component {
             <tr>
               <td>{volcano['properties']['V_Name']}</td>
               <td>{volcano['properties']['Subregion']}</td>
-              <td>{volcano['properties']['Latitude']}</td>
-              <td>{volcano['properties']['Longitude']}</td>
+              <td>{
+                  '(' + volcano['properties']['Latitude']
+                  + ', ' + volcano['properties']['Longitude'] + ')'}</td>
               <td>{volcano['properties']['H_active']}</td>
               <td>{volcano['properties']['hazard']}</td>
             </tr> 

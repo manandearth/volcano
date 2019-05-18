@@ -156,8 +156,9 @@
 }
   
   table {
+      table-layout: fixed;
       border-spacing: 0;
-      width:100%;
+      width:70%;
   }
   td + td {
       border: 1px solid #999;der-left:1px solid #eee;
