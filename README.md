@@ -1,3 +1,38 @@
+# Volcano - an exercise in React JS. 
+
+## Volcanoes [Wikipedia](https://en.wikipedia.org/wiki/Volcano)
+
+The word volcano is derived from the name of *Vulcano*, a volcanic island in the Aeolian Islands of Italy whose name in turn comes from *Vulcan*, the god of fire in Roman mythology. The study of volcanoes is called *volcanology*, sometimes spelled *vulcanology*.
+
+## App
+
+The app is an exercise in **React JS**. The current gh-pages version lives in => https://manandearth.github.io/volcano/
+
+It is a dashboard in progress.
+
+### progress...
+
+Functioning, Lots to do. The current version misses functionality as well as a more comprehensive dataset.
+
+
+### TODO
+
+**1) More comprehensive dataset**
+ - Last eruption date
+ - Height
+ 
+**2) Dashboard**
+ - Add **Vega**
+
+**3) Live data**
+ - Update currently erupting volcanoes 
+ 
+**4) Map**
+ - incorporate the github **geojson** view
+ - Alternatively add **Leaflet**
+
+## DEV
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
