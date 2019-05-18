@@ -3,6 +3,8 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import * as serviceWorker from './serviceWorker';
 import Volcano from './volcano.json';
+import Earthquakes from './earthquakes.json';
+import Smithsonian from './smithsonian.json';
 import logo from './react-native-icon.svg';
 
 class App extends React.Component  {
@@ -12,11 +14,9 @@ class App extends React.Component  {
               <div className="topbar">
                 <div className="title">
                   <h1><span className="title">[</span>REACTIVE VOLCANOES<span className="title">]</span></h1>
-                  <h2 className="title">The following is a <img src={logo} className="app-logo" alt="logo" /> <span className="R">R</span>eact exercise</h2>
-                  <div className="explain">
-                    <p>&lt;= Update the table by sliding the range inputs for latitude and longitude.</p>
-                  </div>
-                </div>
+            <h2 className="title">Explore vulcanic data<img src={logo} className="app-logo" alt="logo" /></h2>
+            </div>
+                 
               </div>
 
               <div className="list">

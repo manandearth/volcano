@@ -4,33 +4,30 @@
       background-color: ghostwhite;
   }
   h1 {
-      text-align: right;
+      text-align: left;
       font-family: 'Oxygen Mono', monospace;
       color: #444;
+      margin-top: 0px;
      
   }
 
   div.title{
-      padding-right: 5%;
+      width: 50%;
+      float: left;
   }
 
   span.title {
       font-size: 3rem;
       vertical-align: middle;
   }
-
-  span.R {
-      font-size: 2rem;
-      vertical-align: middle;
-  }
   
   h2.title {
-      text-align: right;
+      text-align: left;
       font-family: 'Oxygen Mono', monospace;
       font-size: 1rem;
       color: #888;
-      padding-right: 0.3rem;
-      margin-top: -3rem;
+      padding-left: 4.5rem;
+      margin-top: -4rem;
      
   }
   h3 {
@@ -42,13 +39,6 @@
       font-size: 1.2rem;
       color: #444;
   }
-
-  div.explain {
-      width: 550px;
-      transform: translate(380px ,10px)
-      
-      
-  }
   p.label {
       font-weight: bold;
       color: red;
@@ -59,19 +49,19 @@
       position: fixed;
       top: 0;
       width: 100%;
-      height: 28%;
+      height: 10%;
       background: white;
   }
 
   .app-logo {
      
-      transform: scale(.75, .75);
-      transform: translateY(20px);
+      
+      transform: translateY(22px) scale(.5,.5);
 
   }
 
   .list {
-      margin-top: 250px;
+      margin-top: 100px;
   }
 
 .slidecontainer {
@@ -133,32 +123,36 @@
   .location-range {
       padding: 1rem;
       position: fixed;
-      margin-top: -300px;
+      margin-top: 0px;
       background: floralwhite;
+      float: left;
+      width: 30%;
   }
   
   section {
-      position: relative;
+      position: fixed;
       border: 1px solid #000;
       padding-top: 37px;
       background: floralwhite;
+      width: 100%;
 }
   section.positioned {
       position: absolute;
       top:100px;
-      left:100px;
-      width:800px;
+      width:100%;
       box-shadow: 0 0 15px #333;
   }
   .container {
       overflow-y: auto;
-      height: 500px;
-}
+      height: 700px;
+  }
   
   table {
+      margin-left: 40%;
       table-layout: fixed;
       border-spacing: 0;
-      width:70%;
+      width:60%;
+      
   }
   td + td {
       border: 1px solid #999;der-left:1px solid #eee;

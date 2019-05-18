@@ -4,6 +4,8 @@
 
 The word volcano is derived from the name of *Vulcano*, a volcanic island in the Aeolian Islands of Italy whose name in turn comes from *Vulcan*, the god of fire in Roman mythology. The study of volcanoes is called *volcanology*, sometimes spelled *vulcanology*.
 
+The dataset is a geojson from the Humanitarian Data Exchange (HDX) [here]( https://data.humdata.org/dataset/a60ac839-920d-435a-bf7d-25855602699d/resource/7234d067-2d74-449a-9c61-22ae6d98d928)
+
 ## App
 
 The app is an exercise in **React JS**. The current gh-pages version lives in => https://manandearth.github.io/volcano/
