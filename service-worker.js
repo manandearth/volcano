@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/volcano/precache-manifest.5bc8b785a8e046dc8d22e966c2199edf.js"
+  "/volcano/precache-manifest.1b0d4b5be3cd8cdfd2bd74951b619725.js"
 );
 
 self.addEventListener('message', (event) => {

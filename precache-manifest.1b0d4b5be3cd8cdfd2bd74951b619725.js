@@ -1,10 +1,10 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "947aab0c4ca2a449913a1d15858faff7",
+    "revision": "db7fb31c1eca45fd4f1f523cd0f76537",
     "url": "/volcano/index.html"
   },
   {
-    "revision": "b9341397db2c37391db7",
+    "revision": "eee46f914c2976295738",
     "url": "/volcano/static/css/main.34de6062.chunk.css"
   },
   {
@@ -12,8 +12,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/volcano/static/js/2.0771dcc1.chunk.js"
   },
   {
-    "revision": "b9341397db2c37391db7",
-    "url": "/volcano/static/js/main.6a0331bf.chunk.js"
+    "revision": "eee46f914c2976295738",
+    "url": "/volcano/static/js/main.fc9e4f20.chunk.js"
   },
   {
     "revision": "d7dd9bd81ea5eb95025a",
